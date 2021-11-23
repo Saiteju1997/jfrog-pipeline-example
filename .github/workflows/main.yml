@@ -1,0 +1,17 @@
+name: Upload Python Package
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Release to S3
+      run:  |
+            chmod 777 release.sh
+            bash release.sh 
